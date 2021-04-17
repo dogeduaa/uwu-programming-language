@@ -1,0 +1,17 @@
+--print "Hi"
+--print "hello"
+--print 45+5
+--if 22==24 then print "lol" else print "fuck"
+--print "this is a commented statement, it should not run."
+--var name = "lara"
+--var age = 69
+--var country = "iraq"
+--print 12*2
+--if "lol"==false then print "WUUUWUWUWU" else print "e!"
+--repeat 5 print "Allah"
+
+print "hiii"
+print "transrights"
+print 1+2*5
+repeat 5 print "Lara"
+if 22!=true then print true else print false
