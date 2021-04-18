@@ -78,25 +78,24 @@ try {
                     fetch(link).then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err));
                     break;
                 case "fun":
-                    const functionName = line.split(" ")[1].split("").filter(char => char !== "(" && char !== ")").join("");
+                    const functionName = line.split(" ")[1].substring(0, line.split(" ")[1].indexOf("("));
+                    const params = line.substring(line.indexOf("("), line.indexOf(")")+1);
                     if (line.split(" ")[2] !== "=>") {
                         throw "Syntax error: '=>' missing in function expression."
                     } else {
                         if (line.split(" ")[3] === "write") {
                             const message = line.split(" ")[4]
-                            eval(`uwu.${functionName} = () => console.log(${message})`);
+                            eval(`uwu.${functionName} = ${params} => console.log(${message})`);
                         } else if (line.split(" ")[3] === "return") {
                             const message = line.split(" ")[4]
-                            eval(`uwu.${functionName} = () => ${message}`)
+                            eval(`uwu.${functionName} = ${params} => ${message}`)
                         } else if (line.split(" ")[3] === "if") {
                             //not done yet
                         }
                     }
                     break;
                 case "uwu":
-                    if (line.split(".")[1].includes("(")) {
-                        eval(line);
-                    }
+                    eval(line)
             }
         }
     });    

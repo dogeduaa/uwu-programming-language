@@ -1,22 +1,14 @@
-var aer = true
+fun bruh() => write "yea"
 
-if uwu.aer then write !false
+fun yeah(o) => write o
 
-var allah = "yeah"
-var age_of_allah = 13.5
+uwu.yeah(2)
 
-fun bruh() => write "yes"
+fun sum(a,b) => write a+b
 
-uwu.bruh()
+uwu.sum(5,5)
 
-fun getName() => write "lara"
+fun getge(a) => return a
 
-uwu.getName()
 
-fun idk() => return 123+5
-
-write uwu.idk()
-
-fun br() => write "lol"
-
-if uwu.idk()<200 then write "good" else write "bad"
+repeat 30 write uwu.getge("AAAAAAAAAAa").length
