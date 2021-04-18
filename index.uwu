@@ -20,5 +20,3 @@ write uwu.idk()
 fun br() => write "lol"
 
 if uwu.idk()<200 then write "good" else write "bad"
-
-repeat 20 if uwu.idk()<200 then write "good" else write "bad"
