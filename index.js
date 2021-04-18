@@ -5,8 +5,9 @@ const args = process.argv;
 try {
     const file = args[2].includes(".uwu") ? fs.readFileSync(args[2], 'utf8') : fs.readFileSync(args[2] + ".uwu", 'utf8');
 
-    const uwu = { };
-    const random = Math.floor(Math.random() * 1000);
+    const uwu = { 
+        random: () => Math.floor(Math.random() * 100)
+    };
 
     file.split("\n").forEach(line => {
         const tokens = line.split("");
@@ -90,7 +91,29 @@ try {
                             const message = line.split(" ")[4]
                             eval(`uwu.${functionName} = ${params} => ${message}`)
                         } else if (line.split(" ")[3] === "if") {
-                            //not done yet
+                            if (eval(line.split(" ")[4])) {
+                                if (line.split(" ")[5] === "then") {
+                                    if (line.split(" ")[6] === "write") {
+                                        const message = line.split(" ")[7];
+                                        if (message.startsWith("\"")) {
+                                            eval(`uwu.${functionName} = ${params} => console.log(${message})`);
+                                        } else {
+                                            eval(`uwu.${functionName} = ${params} => console.log(${message})`)
+                                        }
+                                    }
+                                }
+                            } else {
+                                if (line.split(" ")[8] === "else") {
+                                    if (line.split(" ")[9] === "write") {
+                                        const message = line.split(" ")[10];
+                                        if (message.startsWith("\"")) {
+                                            eval(`uwu.${functionName} = ${params} => console.log(${message})`);
+                                        } else {
+                                            eval(`uwu.${functionName} = ${params} => console.log(${message})`)
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                     break;

@@ -1,14 +1,5 @@
-fun bruh() => write "yea"
+fun bruh() => if false then write "ALLAH" else write "cheems"
+uwu.bruh()
 
-fun yeah(o) => write o
-
-uwu.yeah(2)
-
-fun sum(a,b) => write a+b
-
-uwu.sum(5,5)
-
-fun getge(a) => return a
-
-
-repeat 30 write uwu.getge("AAAAAAAAAAa").length
+fun lmao() => if 400 then write "sexmex" else write "fuck"
+uwu.lmao()
