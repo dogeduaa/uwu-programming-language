@@ -1,17 +1,24 @@
---print "Hi"
---print "hello"
---print 45+5
---if 22==24 then print "lol" else print "fuck"
---print "this is a commented statement, it should not run."
---var name = "lara"
---var age = 69
---var country = "iraq"
---print 12*2
---if "lol"==false then print "WUUUWUWUWU" else print "e!"
---repeat 5 print "Allah"
+var aer = true
 
-print "hiii"
-print "transrights"
-print 1+2*5
-repeat 5 print "Lara"
-if 22!=true then print true else print false
+if uwu.aer then write !false
+
+var allah = "yeah"
+var age_of_allah = 13.5
+
+fun bruh() => write "yes"
+
+uwu.bruh()
+
+fun getName() => write "lara"
+
+uwu.getName()
+
+fun idk() => return 123+5
+
+write uwu.idk()
+
+fun br() => write "lol"
+
+if uwu.idk()<200 then write "good" else write "bad"
+
+repeat 20 if uwu.idk()<200 then write "good" else write "bad"
