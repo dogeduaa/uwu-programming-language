@@ -1,5 +1,34 @@
 {
   "dependencies": {
+    "esm": "^3.2.25",
     "node-fetch": "^2.6.1"
-  }
+  },
+  "name": "@lara-abubaker/uwu",
+  "bin": {
+    "@lara-abubaker/uwu": "bin/uwu",
+    "uwu": "bin/uwu"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords":[
+    "uwu"
+  ],
+  "description": "A small programming language I'm making.\r Note: it's not done yet, I'm still fixing the bugs and adding more features.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ya-allah/uwu-programming-language.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ya-allah/uwu-programming-language/issues"
+  },
+  "homepage": "https://github.com/ya-allah/uwu-programming-language#readme"
 }
