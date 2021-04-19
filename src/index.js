@@ -2,11 +2,16 @@ const fs = require("fs");
 const fetch = require("node-fetch");
 const args = process.argv;
 
+const keywords = ["if", "else", "then", "var", "repeat", "get", "fun", "write", "return", "while", "do", "uwu"];
+const uwu = { 
+    random: () => Math.floor(Math.random() * 100)
+};
+
 function handleModule(mod) {
     mod.split("\n").forEach(line => {
         const tokens = line.split("");
         const es = [];
-
+        
         for (const char of tokens) {
             es.push(char);
             const tokn = es.join("");
@@ -233,10 +238,7 @@ function handleModule(mod) {
 try {
     let file = args[2].includes(".uwu") ? fs.readFileSync(args[2], 'utf8') : fs.readFileSync(args[2] + ".uwu", 'utf8');
 
-    const keywords = ["if", "else", "then", "var", "repeat", "get", "fun", "write", "return", "while", "do", "uwu"];
-    const uwu = { 
-        random: () => Math.floor(Math.random() * 100)
-    };
+    
 
     file.split("\n").forEach(line => {
         const tokens = line.split("");
