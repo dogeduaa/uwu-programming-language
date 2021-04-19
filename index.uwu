@@ -1,17 +1,7 @@
-if false then get https://jsonplaceholder.typicode.com/todos/1 else get https://jsonplaceholder.typicode.com/todos/1
-write uwu.name
+import "bruh.uwu"
 
-var i = 0
+write "aaaaa"
 
-while uwu.i<5 do get https://jsonplaceholder.typicode.com/todos/1 uwu.i++
+fun sex() => write "YES"
 
---fun canis() => if false then repeat 20 write "h" else repeat 20 write "finally"
---uwu.canis()
---fun bruh() => if true then write "hii" else repeat 20 write "ss"
---uwu.bruh()
---var bro = 0
---while uwu.bro<20 do write "uwu" uwu.bro+=1 
---var sex = true
---if uwu.sex then write "great"
---fun json() => get "https://jsonplaceholder.typicode.com/todos/1"
---uwu.json()
+uwu.sex()

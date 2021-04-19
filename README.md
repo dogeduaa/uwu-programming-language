@@ -15,10 +15,11 @@ Note: it's not done yet, I'm still fixing the bugs and adding more features.
 
 # Features
 
-- [x] print function
-- [x] if-else statements
-- [x] comments
-- [x] variables
-- [x] loops (repeat, while)
-- [x] built in get function (fetches JSON from a REST API)
-- [x] functions
+- print function
+- if-else statements
+- comments
+- variables
+- loops (repeat, while)
+- built in get function (fetches JSON from a REST API)
+- functions
+- modules
