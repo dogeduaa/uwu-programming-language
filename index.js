@@ -5,6 +5,7 @@ const args = process.argv;
 try {
     const file = args[2].includes(".uwu") ? fs.readFileSync(args[2], 'utf8') : fs.readFileSync(args[2] + ".uwu", 'utf8');
 
+    const keywords = ["if", "else", "then", "var", "repeat", "get", "fun", "write", "return", "while", "do", "uwu"];
     const uwu = { 
         random: () => Math.floor(Math.random() * 100)
     };
@@ -59,6 +60,11 @@ try {
                     const statment = line.split(" ");
                     const name = statment[1];
                     const value = statment[3];
+                    keywords.forEach(keyword => {
+                        if (name === keyword) {
+                            throw "Syntax Error: you cannot name a variable using a keyword.";
+                        } 
+                    })
                     eval(`uwu.${name} = ${value}`)
                     break;
                 case "repeat":
@@ -75,7 +81,7 @@ try {
                     } 
                     break;
                 case "get": 
-                    const link = line.split(" ")[1];
+                    const link = line.split(" ")[1].split("").filter(char => char !== "\"").join("");
                     fetch(link).then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err));
                     break;
                 case "fun":
@@ -100,25 +106,74 @@ try {
                                         } else {
                                             eval(`uwu.${functionName} = ${params} => console.log(${message})`)
                                         }
+                                    } else if (line.split(" ")[6] === "return") {
+                                        const message = line.split(" ")[7];
+                                        eval(`uwu.${functionName} = ${params} => ${message}`);
+                                    } else if (line.split(" ")[6] === 'repeat') {
+                                        const message = line.split(" ")[9].split("").filter(char => char !== "\"").join("");
+                                        eval(`uwu.${functionName} = ${params} => {
+                                            for (let i = 0; i < parseInt(line.split(" ")[7]); i++) {
+                                                if (line.split(" ")[8] === "write") {
+                                                    console.log(message)
+                                                }
+                                            }
+                                        }`);
                                     }
                                 }
                             } else {
-                                if (line.split(" ")[8] === "else") {
-                                    if (line.split(" ")[9] === "write") {
-                                        const message = line.split(" ")[10];
+                                if (line.split(" ")[line.split(" ").indexOf("else")] === "else") {
+                                    if (line.split(" ")[line.split(" ").indexOf("else")+1] === "write") {
+                                        const message = line.split(" ")[line.split(" ").indexOf("else")+2];
                                         if (message.startsWith("\"")) {
                                             eval(`uwu.${functionName} = ${params} => console.log(${message})`);
                                         } else {
-                                            eval(`uwu.${functionName} = ${params} => console.log(${message})`)
+                                            eval(`uwu.${functionName} = ${params} => console.log(${message})`);
+                                        }
+                                    } else if (line.split(" ")[line.split(" ").indexOf("else")+1] === "return") {
+                                        const message = line.split(" ")[line.split(" ").indexOf("else")+2];
+                                        eval(`uwu.${functionName} = ${params} => ${message}`);
+                                    } else if (line.split(" ")[line.split(" ").indexOf("else")+1] === "repeat") {
+                                        if (line.split(" ")[line.split(" ").indexOf("else")+3] === "write") {
+                                            const message = line.split(" ")[line.split(" ").indexOf("else")+1+3].split("").filter(char => char !== "\"").join("");
+                                            eval(`uwu.${functionName} = ${params} => {
+                                                let ppp = 0;
+                                                while(ppp < ${line.split(" ")[line.split(" ").indexOf("else")+2]}) {
+                                                    console.log(message)
+                                                    ppp += 1;
+                                                }
+                                            }`)
                                         }
                                     }
                                 }
                             }
+                        } else if (line.split(" ")[3] === "get") {
+                            const link = line.split(" ")[4].split("").filter(char => char !== "\"").join("");
+                            eval(`uwu.${functionName} = ${params} => fetch(link).then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err))`)
                         }
                     }
                     break;
                 case "uwu":
                     eval(line)
+                    break;
+                case "while": 
+                    while(eval(line.split(" ")[1])) {
+                        if (line.split(" ")[2] === "do") {
+                            if (line.split(" ")[3] === "write") {
+                                const message = line.split(" ")[4];
+                                if (message.startsWith("\"")) {
+                                    console.log(message.split("").filter(char => char !== "\"").join(""));
+                                } else {
+                                    console.log(eval(message))
+                                    return
+                                }
+                                if (line.split(" ")[5]) {
+                                    eval(line.split(" ")[5]);
+                                }
+                            }
+                        } else {
+                            throw "Syntax Error: missing 'do' keyword";
+                        }
+                    }
             }
         }
     });    

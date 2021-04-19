@@ -1,5 +1,21 @@
-fun bruh() => if false then write "ALLAH" else write "cheems"
+fun canis() => if false then repeat 20 write "h" else repeat 20 write "finally"
+
+uwu.canis()
+
+fun bruh() => if false then write "hii" else repeat 20 write "ss"
+
 uwu.bruh()
 
-fun lmao() => if 400 then write "sexmex" else write "fuck"
-uwu.lmao()
+var bro = 0
+
+while uwu.bro<20 do write "uwu" uwu.bro+=1 
+
+var sex = true
+
+if uwu.sex then write "great"
+
+--commented code
+
+fun json() => get "https://jsonplaceholder.typicode.com/todos/1"
+
+uwu.json()
