@@ -513,21 +513,21 @@ try {
                                     if (eval(statement[1])) {
                                         if (statement[2] === "then") {
                                             if (statement[3] === "write") {
-                                                const message = statement[4];
-                                                if (message.startsWith("\"")) {
-                                                    console.log(message.split("").filter(char => char !== "\"").join(""));
+                                                lyne = lne
+                                                if (lne[4].startsWith("\"")) {
+                                                    code.push(`\nconsole.log(lyne[4].split("").filter(char => char !== '"').join(""))`);
                                                 } else {
-                                                    console.log(eval(message));
+                                                    code.push(`console.log(lyne[4])`);
                                                 }
                                             } else if (statement[3] === "var") {
-                                                const name = statement[4];
-                                                const value = statement[6];
+                                                const nam = lne[4];
+                                                const value = lne[6];
                                                 keywords.forEach(keyword => {
-                                                    if (name === keyword) {
+                                                    if (nam === keyword) {
                                                         throw "Syntax Error: you cannot name a variable using a keyword.";
                                                     } 
                                                 })
-                                                eval(`uwu.${name} = ${value}`)
+                                                code.push(`let ${nam} = ${value}`)
                                             } else if (statement[3] === "repeat") {
                                                 for (let i = 0; i < parseInt(statement[4]); i++) {
                                                     if (statement[5] === "write") {

@@ -30,9 +30,15 @@ fun lara() {
 
 fun sex(age) {
     if true then write "come"
+    if true then var s = "ll"
     write age>18
+    write s
 }
 
+uwu.sex()
+fun all() => write "Sex"
+
+uwu.all()
 -- uwu.sex(2)
 
 -- fun idk() {
