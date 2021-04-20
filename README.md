@@ -24,4 +24,4 @@ I don't recommed that you try this programming language until I am done with it,
 - loops (for, while, repeat)
 - built in get function (fetches JSON from a REST API)
 - functions
-- modules
+- modules (no exporting required)
