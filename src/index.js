@@ -25,7 +25,7 @@ function handleModule(mod) {
                     try { pas = fs.readFileSync(mod, "utf8"); } catch(err) { throw "Module error: file not found" }
                     handleModule(pas)
                     break;
-                    case "write":
+                case "write":
                     const message = line.substr("write".length, line.length);
                     if (message.startsWith("\"")) {
                         console.log(message.split("").filter(char => char !== "\"").join(""));
@@ -182,22 +182,38 @@ function handleModule(mod) {
                     const link = line.split(" ")[1].split("").filter(char => char !== "\"").join("");
                     fetch(link).then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err));
                     break;
-                case "sex":
+                case "for":
+                    let conditions = [];
+
+                    line.substring(line.indexOf("("), line.indexOf(")")+1).split(";").forEach(char => {
+                        conditions.push(char.split("").filter(letter => letter !== "(" && letter !== ")").join("").replace("var", "let").trim())
+                    })
+
+                    let cod = [];
+                    let kod = [];
+
                     for (let c = 1; true; c++) {
                         if (file.split("\n")[file.split("\n").indexOf(line)+c].includes("}")) {
-                            break;   
-                            // file.split("\n")[file.split("\n").indexOf(line)+c].trim()
+                            break;
                         } else {
-                            if (file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[0] === "write") {
-                                const message = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1];
-                                if (message.startsWith("\"")) {
-                                    console.log(message.split("").filter(char => char !== "\"").join(""));
-                                } else {
-                                    console.log(eval(message));
-                                }
-                            }
-                        }  
+                            cod.push(file.split("\n")[file.split("\n").indexOf(line)+c].trim())
+                        }
                     }
+
+                    cod.forEach(b => {
+                        if (b.split(" ")[0] === "write") {
+                            kod.push(`console.log(${b.split(" ")[1]})`)
+                        }
+                    })
+
+                    eval(`
+                    ${conditions[0]}
+                    while(${conditions[1]}) {
+                        ${kod.join("\n")}
+                        ${conditions[2]}
+                    }
+                    `)
+
                     break;
                 case "fun":
                     const code = [];
@@ -606,22 +622,38 @@ try {
                     const link = line.split(" ")[1].split("").filter(char => char !== "\"").join("");
                     fetch(link).then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err));
                     break;
-                case "sex":
+                case "for":
+                    let conditions = [];
+
+                    line.substring(line.indexOf("("), line.indexOf(")")+1).split(";").forEach(char => {
+                        conditions.push(char.split("").filter(letter => letter !== "(" && letter !== ")").join("").replace("var", "let").trim())
+                    })
+
+                    let cod = [];
+                    let kod = [];
+
                     for (let c = 1; true; c++) {
                         if (file.split("\n")[file.split("\n").indexOf(line)+c].includes("}")) {
-                            break;   
-                            // file.split("\n")[file.split("\n").indexOf(line)+c].trim()
+                            break;
                         } else {
-                            if (file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[0] === "write") {
-                                const message = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1];
-                                if (message.startsWith("\"")) {
-                                    console.log(message.split("").filter(char => char !== "\"").join(""));
-                                } else {
-                                    console.log(eval(message));
-                                }
-                            }
-                        }  
+                            cod.push(file.split("\n")[file.split("\n").indexOf(line)+c].trim())
+                        }
                     }
+
+                    cod.forEach(b => {
+                        if (b.split(" ")[0] === "write") {
+                            kod.push(`console.log(${b.split(" ")[1]})`)
+                        }
+                    })
+
+                    eval(`
+                    ${conditions[0]}
+                    while(${conditions[1]}) {
+                        ${kod.join("\n")}
+                        ${conditions[2]}
+                    }
+                    `)
+
                     break;
                 case "fun":
                     const code = [];

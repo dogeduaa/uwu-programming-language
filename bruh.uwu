@@ -32,3 +32,7 @@ write uwu.nme
 
 var aaa = true
 write uwu.aaa
+
+for (var j = 0; j < 50; j++) {
+    write "j"+j
+}

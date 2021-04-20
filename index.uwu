@@ -48,16 +48,24 @@
 
 import "bruh.uwu"
 
-var str firstname = "lara"
+-- var str firstname = "lara"
 
-var num age = 453.4
+-- var num age = 453.4
 
-var bool isGay = true
+-- var bool isGay = true
 
-var sex = true
+-- var sex = true
 
-write uwu.sex
+-- write uwu.sex
 
-write uwu.firstname
+-- write uwu.firstname
 
-if uwu.isGay then write "laraisgay"
+-- if uwu.isGay then write "laraisgay"
+
+for (var i = 0; i < 5; i++) {
+    write i
+}
+
+for (var i = 0; i < 5; i++) {
+    write i
+}
