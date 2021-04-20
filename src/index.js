@@ -11,8 +11,7 @@ function handleModule(mod) {
     mod.split("\n").forEach(line => {
         const tokens = line.split("");
         const es = [];
-        let file = args[2].includes(".uwu") ? fs.readFileSync(args[2], 'utf8') : fs.readFileSync(args[2] + ".uwu", 'utf8');
-
+        let file = mod;
         
         for (const char of tokens) {
             es.push(char);
