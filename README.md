@@ -17,10 +17,9 @@ I don't recommed that you try this programming language until I am done with it,
 
 # Features
 
-- print function
-- if-else statements (still working on these)
-- comments
 - variables (dynamicly or strictly typed)
+- conditional statements (still working on these)
+- comments
 - loops (for, while, repeat)
 - built in get function (fetches JSON from a REST API)
 - functions
