@@ -176,11 +176,10 @@ function handleModule(mod) {
                                     const lne = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" "); 
                                     const cond = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[0];
                                     const message = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1];
-                                    const link = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1].split("").filter(char => char !== "\"").join("");
                                     if (cond === "write") {
                                         code.push(`console.log(${message})`);
                                     } else if (cond === "get") {
-                                        url = link;
+                                        url = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1].split("").filter(char => char !== "\"").join("");
                                         code.push("fetch(url).then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err));")
                                     } else if (cond === "return") {
                                         code.push(`return ${message}`);
@@ -479,11 +478,10 @@ try {
                                 const lne = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" "); 
                                 const cond = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[0];
                                 const message = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1];
-                                const link = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1].split("").filter(char => char !== "\"").join("");
                                 if (cond === "write") {
                                     code.push(`console.log(${message})`);
                                 } else if (cond === "get") {
-                                    url = link;
+                                    url = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1].split("").filter(char => char !== "\"").join("");
                                     code.push("fetch(url).then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err));")
                                 } else if (cond === "return") {
                                     code.push(`return ${message}`);
@@ -510,7 +508,89 @@ try {
                                         } 
                                     })
                                     code.push(`let ${nam} = ${value}`)
-                                } 
+                                } else if (cond === "if") {
+                                    const statement = lne;
+                                    if (eval(statement[1])) {
+                                        if (statement[2] === "then") {
+                                            if (statement[3] === "write") {
+                                                const message = statement[4];
+                                                if (message.startsWith("\"")) {
+                                                    console.log(message.split("").filter(char => char !== "\"").join(""));
+                                                } else {
+                                                    console.log(eval(message));
+                                                }
+                                            } else if (statement[3] === "var") {
+                                                const name = statement[4];
+                                                const value = statement[6];
+                                                keywords.forEach(keyword => {
+                                                    if (name === keyword) {
+                                                        throw "Syntax Error: you cannot name a variable using a keyword.";
+                                                    } 
+                                                })
+                                                eval(`uwu.${name} = ${value}`)
+                                            } else if (statement[3] === "repeat") {
+                                                for (let i = 0; i < parseInt(statement[4]); i++) {
+                                                    if (statement[5] === "write") {
+                                                        const message = statement[6];
+                                                            if (message.startsWith("\"")) {
+                                                                console.log(message.split("").filter(char => char !== "\"").join(""));
+                                                            } else {
+                                                                console.log(eval(message));
+                                                            }
+                                                    }
+                                                }
+                                            } else if (statement[3] === "get") {
+                                                const link = statement[4].split("").filter(char => char !== "\"").join("");
+                                                fetch(link).then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err));
+                                            }
+                                        } 
+                                    } else { 
+                                        if (line.split(" ")[line.split(" ").indexOf("elseif")] === "elseif") {
+                                            if (eval(line.split(" ")[line.split(" ").indexOf("elseif")+1])) {
+                                                if (line.split(" ")[line.split(" ").indexOf("elseif")+2] === "write") {
+                                                    const message = line.split(" ")[line.split(" ").indexOf("elseif")+3];
+                                                        if (message.startsWith("\"")) {
+                                                            console.log(message.split("").filter(char => char !== "\"").join(""));
+                                                        } else {
+                                                            console.log(eval(message));
+                                                        }
+                                                }
+                                            }
+                                        } else if (line.split(" ")[line.split(" ").indexOf("else")] === "else") {
+                                            if (line.split(" ")[line.split(" ").indexOf("else")+1] === "write") {
+                                                const message = line.split(" ")[line.split(" ").indexOf("else")+2];
+                                                if (message.startsWith("\"")) {
+                                                    console.log(message.split("").filter(char => char !== "\"").join(""));
+                                                } else {
+                                                    console.log(eval(message));
+                                                }
+                                            } else if (line.split(" ")[line.split(" ").indexOf("else")+1] === "var") {
+                                                const name = line.split(" ")[line.split(" ").indexOf("else")+2];
+                                                const value = line.split(" ")[line.split(" ").indexOf("else")+4];
+                                                keywords.forEach(keyword => {
+                                                    if (name === keyword) {
+                                                        throw "Syntax Error: you cannot name a variable using a keyword.";
+                                                    } 
+                                                })
+                                                eval(`uwu.${name} = ${value}`)
+                                            } else if (line.split(" ")[line.split(" ").indexOf("else")+1] === "repeat") {
+                                                for (let i = 0; i < parseInt(line.split(" ")[line.split(" ").indexOf("else")+2]); i++) {
+                                                    if (line.split(" ")[line.split(" ").indexOf("else")+3] === "write") {
+                                                        const message = line.split(" ")[line.split(" ").indexOf("else")+4];
+                                                            if (message.startsWith("\"")) {
+                                                                console.log(message.split("").filter(char => char !== "\"").join(""));
+                                                            } else {
+                                                                console.log(eval(message));
+                                                            }
+                                                    }
+                                                }
+                                            } else if (line.split(" ")[line.split(" ").indexOf("else")+1] === "get") {
+                                                const link = line.split(" ")[line.split(" ").indexOf("else")+2].split("").filter(char => char !== "\"").join("");
+                                                fetch(link).then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err));
+                                            }
+                                        } 
+                                    }
+                                }
                             }  
                         }
                     } else if (line.split(" ")[2] !== "=>") {

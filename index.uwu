@@ -4,23 +4,21 @@
 --     write "AAAAAAAAAAAAAAAAAAA"
 -- }
 
-import "bruh.uwu"
+-- import "bruh.uwu"
 
 fun lara() {
     write "AAAAAAAAa"
-    write "AAAAAAAAa"
-    write "AAAAAAAAa"
-    write "AAAAAAAAa"
-    write "AAAAAAAAa"
-    repeat 20 write "hhhh"
-    write "AAAAAAAAa"
+    -- write "AAAAAAAAa"
+    -- repeat 2 write "hhhh"
+    -- write "AAAAAAAAa"
     -- get "https://jsonplaceholder.typicode.com/photos/2"
-    -- return "SEX"
-    var aaa = "sex22"
-    write aaa
+    -- --return "SEX"
+    -- var aaa = "sex22"
+    -- write aaa
+    -- write "yeeee"
 }
 
-uwu.lara()
+-- uwu.lara()
 
 -- fun fizzbuzz(num) {
 --     if num%5===0&&num%3===0 then write "fizzbuzz"
@@ -31,10 +29,11 @@ uwu.lara()
 -- uwu.fizzbuzz(75)
 
 fun sex(age) {
-    if age>18 then write "come"
+    if true then write "come"
+    write age>18
 }
 
-uwu.sex(2)
+-- uwu.sex(2)
 
 -- fun idk() {
 --     write "sex"
