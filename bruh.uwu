@@ -18,8 +18,17 @@
 
 -- if uwu.number%3===0&&uwu.number%5===0 then write "fizzbuzz" elseif uwu.number%3===0 write "fizz" else write "buzz"
 
-fun sss() {
-    write "sssssus"
-}
+-- fun sss() {
+--     write "sssssus"
+-- }
 
-uwu.sss()
+-- import "sex.uwu"
+
+-- uwu.sss()
+
+var str nme = "sex"
+
+write uwu.nme
+
+var aaa = true
+write uwu.aaa

@@ -4,19 +4,17 @@
 --     write "AAAAAAAAAAAAAAAAAAA"
 -- }
 
-import "bruh.uwu"
-
-fun lara() {
-    write "AAAAAAAAa"
-    -- write "AAAAAAAAa"
-    -- repeat 2 write "hhhh"
-    -- write "AAAAAAAAa"
-    -- get "https://jsonplaceholder.typicode.com/photos/2"
-    -- --return "SEX"
-    -- var aaa = "sex22"
-    -- write aaa
-    -- write "yeeee"
-}
+-- fun lara() {
+--     write "AAAAAAAAa"
+--     -- write "AAAAAAAAa"
+--     -- repeat 2 write "hhhh"
+--     -- write "AAAAAAAAa"
+--     -- get "https://jsonplaceholder.typicode.com/photos/2"
+--     -- --return "SEX"
+--     -- var aaa = "sex22"
+--     -- write aaa
+--     -- write "yeeee"
+-- }
 
 -- uwu.lara()
 
@@ -28,17 +26,17 @@ fun lara() {
 
 -- uwu.fizzbuzz(75)
 
-fun sex(age) {
-    if true then write "come"
-    if true then var s = "ll"
-    write age>18
-    write s
-}
+-- fun sex(age) {
+--     if true then write "come"
+--     if true then var s = "ll"
+--     write age>18
+--     write s
+-- }
 
-uwu.sex()
-fun all() => write "Sex"
+-- uwu.sex()
+-- fun all() => write "Sex"
 
-uwu.all()
+-- uwu.all()
 -- uwu.sex(2)
 
 -- fun idk() {
@@ -47,3 +45,19 @@ uwu.all()
 -- }
 
 -- uwu.idk()
+
+import "bruh.uwu"
+
+var str firstname = "lara"
+
+var num age = 453.4
+
+var bool isGay = true
+
+var sex = true
+
+write uwu.sex
+
+write uwu.firstname
+
+if uwu.isGay then write "laraisgay"

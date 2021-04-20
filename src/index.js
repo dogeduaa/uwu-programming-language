@@ -6,13 +6,14 @@ const keywords = ["if", "else", "then", "var", "repeat", "get", "fun", "write", 
 const uwu = { 
     random: () => Math.floor(Math.random() * 100)
 };
+const dataTypes = ['str', 'num', 'bool'];
+
 
 function handleModule(mod) {
     mod.split("\n").forEach(line => {
         const tokens = line.split("");
         const es = [];
         let file = mod;
-        
         for (const char of tokens) {
             es.push(char);
             const tokn = es.join("");
@@ -20,7 +21,9 @@ function handleModule(mod) {
             switch(tokn) {
                 case "import":
                     const mod = line.split(" ")[1].substring(0, line.split(" ")[1].length-1).split("").filter(char => char !== "\"").join("")
-                    handleModule(fs.readFileSync(mod, "utf8"))
+                    let pas;
+                    try { pas = fs.readFileSync(mod, "utf8"); } catch(err) { throw "Module error: file not found" }
+                    handleModule(pas)
                     break;
                     case "write":
                     const message = line.substr("write".length, line.length);
@@ -118,14 +121,49 @@ function handleModule(mod) {
                     break;
                 case "var":
                     const statment = line.split(" ");
-                    const name = statment[1];
-                    const value = statment[3];
-                    keywords.forEach(keyword => {
-                        if (name === keyword) {
-                            throw "Syntax Error: you cannot name a variable using a keyword.";
-                        } 
+                    let strongtyped = false;
+                    dataTypes.forEach(type => {
+                        if (statment[1] === type) {
+                            // console.log(type)
+                            strongtyped = true;
+                            if (type === "str") {
+                                if (typeof eval(statment[4]) !== "string") {
+                                    throw `Type error: can't assign a variable of type ${type} to a ${typeof eval(statment[4])}`
+                                }
+                            } else if (type === "num") {
+                                if (typeof eval(statment[4]) !== "number") {
+                                    throw `>> ${args[2].includes(".uwu") ? args[2] : args[2] + ".uwu"}:${file.split("\n").indexOf(line)+1} >> Type error: can't assign a variable of type ${type} to a ${typeof eval(statment[4])}`
+                                }
+                            } else if (type === "bool") {
+                                if (typeof eval(statment[4]) !== "boolean") {
+                                    throw `Type error: can't assign a variable of type ${type} to a ${typeof eval(statment[4])}`
+                                }
+                            }
+
+                            const name = statment[2];
+                            const value = statment[4];
+                            keywords.forEach(keyword => {
+                                if (name === keyword) {
+                                    throw "Syntax Error: you cannot name a variable using a keyword.";
+                                } 
+                            })
+                            eval(`uwu.${name} = ${value}`)
+
+                        }
                     })
-                    eval(`uwu.${name} = ${value}`)
+
+                    if (strongtyped) {
+                        return
+                    } else {
+                        const name = statment[1];
+                        const value = statment[3];
+                        keywords.forEach(keyword => {
+                            if (name === keyword) {
+                                throw "Syntax Error: you cannot name a variable using a keyword.";
+                            } 
+                        })
+                        eval(`uwu.${name} = ${value}`)
+                    }
                     break;
                 case "repeat":
                     const stament = line.split(" ");
@@ -391,7 +429,10 @@ function handleModule(mod) {
 }
 
 try {
-    let file = args[2].includes(".uwu") ? fs.readFileSync(args[2], 'utf8') : fs.readFileSync(args[2] + ".uwu", 'utf8');
+    let filename = args[2].includes(".uwu") ? args[2] : args[2] + ".uwu";
+    let file;
+    
+    try { file = fs.readFileSync(filename, 'utf8'); } catch(err) { throw "Error: file not found" }
 
     file.split("\n").forEach(line => {
         const tokens = line.split("");
@@ -404,7 +445,9 @@ try {
             switch(token) {
                 case "import":
                     const mod = line.split(" ")[1].substring(0, line.split(" ")[1].length-1).split("").filter(char => char !== "\"").join("")
-                    handleModule(fs.readFileSync(mod, "utf8"))
+                    let pas;
+                    try {pas = fs.readFileSync(mod, "utf8")} catch(err) {throw args[2].includes(".uwu") ? args[2] : args[2] + ".uwu" + ", Module Error: File not found"}
+                    handleModule(pas)
                     break;
                 case "write":
                     const message = line.substr("write".length, line.length);
@@ -502,14 +545,49 @@ try {
                     break;
                 case "var":
                     const statment = line.split(" ");
-                    const name = statment[1];
-                    const value = statment[3];
-                    keywords.forEach(keyword => {
-                        if (name === keyword) {
-                            throw "Syntax Error: you cannot name a variable using a keyword.";
-                        } 
+                    let strongtyped = false;
+                    dataTypes.forEach(type => {
+                        if (statment[1] === type) {
+                            // console.log(type)
+                            strongtyped = true;
+                            if (type === "str") {
+                                if (typeof eval(statment[4]) !== "string") {
+                                    throw `Type error: can't assign a variable of type ${type} to a ${typeof eval(statment[4])}`
+                                }
+                            } else if (type === "num") {
+                                if (typeof eval(statment[4]) !== "number") {
+                                    throw `>> ${args[2].includes(".uwu") ? args[2] : args[2] + ".uwu"}:${file.split("\n").indexOf(line)+1} >> Type error: can't assign a variable of type ${type} to a ${typeof eval(statment[4])}`
+                                }
+                            } else if (type === "bool") {
+                                if (typeof eval(statment[4]) !== "boolean") {
+                                    throw `Type error: can't assign a variable of type ${type} to a ${typeof eval(statment[4])}`
+                                }
+                            }
+
+                            const name = statment[2];
+                            const value = statment[4];
+                            keywords.forEach(keyword => {
+                                if (name === keyword) {
+                                    throw "Syntax Error: you cannot name a variable using a keyword.";
+                                } 
+                            })
+                            eval(`uwu.${name} = ${value}`)
+
+                        }
                     })
-                    eval(`uwu.${name} = ${value}`)
+
+                    if (strongtyped) {
+                        return
+                    } else {
+                        const name = statment[1];
+                        const value = statment[3];
+                        keywords.forEach(keyword => {
+                            if (name === keyword) {
+                                throw "Syntax Error: you cannot name a variable using a keyword.";
+                            } 
+                        })
+                        eval(`uwu.${name} = ${value}`)
+                    }
                     break;
                 case "repeat":
                     const stament = line.split(" ");
