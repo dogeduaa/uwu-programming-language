@@ -4,6 +4,8 @@ A small programming language I'm making.
 
 Note: it's not done yet, I'm still fixing the bugs and adding more features.
 
+I don't recommed that you try this programming language until I am done with it, it may not behave as intended when working with some incomplete features such as multiline functions or loops etc.
+
 # Prerequisites
 
 - Having [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com/) installed.
