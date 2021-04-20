@@ -1,7 +1,44 @@
+-- sex name {
+--     write "name"
+--     write "surname"
+--     write "AAAAAAAAAAAAAAAAAAA"
+-- }
+
 import "bruh.uwu"
 
-write "aaaaa"
+fun lara() {
+    write "AAAAAAAAa"
+    write "AAAAAAAAa"
+    write "AAAAAAAAa"
+    write "AAAAAAAAa"
+    write "AAAAAAAAa"
+    repeat 20 write "hhhh"
+    write "AAAAAAAAa"
+    -- get "https://jsonplaceholder.typicode.com/photos/2"
+    -- return "SEX"
+    var aaa = "sex22"
+    write aaa
+}
 
-fun sex() => write "YES"
+uwu.lara()
 
-uwu.sex()
+-- fun fizzbuzz(num) {
+--     if num%5===0&&num%3===0 then write "fizzbuzz"
+--     if num%3===0 then write "fizz"
+--     if num%5===0 then write "buzz"
+-- }
+
+-- uwu.fizzbuzz(75)
+
+fun sex(age) {
+    if age>18 then write "come"
+}
+
+uwu.sex(2)
+
+-- fun idk() {
+--     write "sex"
+--     write "yeah"
+-- }
+
+-- uwu.idk()

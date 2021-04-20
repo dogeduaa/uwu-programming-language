@@ -1,2 +1,25 @@
 
-repeat 20 write "Khomeini"
+-- repeat 20 write "Khomeini"
+
+-- import "bruh.uwu"
+
+-- write "aaaaa"
+
+-- fun sex() => write "YES"
+
+-- uwu.sex()
+
+-- var i = 0
+
+-- var name = "null"
+-- write uwu.name
+
+-- var number = 75
+
+-- if uwu.number%3===0&&uwu.number%5===0 then write "fizzbuzz" elseif uwu.number%3===0 write "fizz" else write "buzz"
+
+fun sss() {
+    write "sssssus"
+}
+
+uwu.sss()
