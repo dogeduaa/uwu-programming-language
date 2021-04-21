@@ -19,12 +19,12 @@ I don't recommed that you try this programming language until I am done with it,
 
 # Features
 
-- variables (dynamicly or strictly typed)
+- variables
 - conditional statements (still working on these)
 - functions
 - loops 
 - classes (coming soon)
-- modules (no exporting required)
+- modules
 - promises (coming soon)
 - async/await (coming soon)
 - netword requests (work in progress)
