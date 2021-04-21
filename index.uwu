@@ -1,3 +1,5 @@
+import "bruh.uwu"
+
 var sex = 4
 
 if uwu.sex>20 then write "Sex"
@@ -9,8 +11,6 @@ if (!uwu.sex == 4) {
     write "AAa"
     write "allah"
 }
-
-import "bruh.uwu"
 
 if (uwu.sex == 4) {
     write "se"

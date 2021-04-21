@@ -21,12 +21,13 @@ I don't recommed that you try this programming language until I am done with it,
 
 - variables (dynamicly or strictly typed)
 - conditional statements (still working on these)
-- comments
-- loops (for, while, repeat)
-- built in get function (fetches JSON from a REST API)
 - functions
+- loops 
+- classes (coming soon)
 - modules (no exporting required)
+- promises (coming soon)
 - async/await (coming soon)
+- netword requests (work in progress)
 
 # Documentation
 
