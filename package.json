@@ -3,9 +3,9 @@
     "esm": "^3.2.25",
     "node-fetch": "^2.6.1"
   },
-  "name": "@lara-abubaker/uwu",
+  "name": "@ya-allah/uwu",
   "bin": {
-    "@lara-abubaker/uwu": "bin/uwu",
+    "@ya-allah/uwu": "bin/uwu",
     "uwu": "bin/uwu"
   },
   "publishConfig": {
