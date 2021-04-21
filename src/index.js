@@ -2,7 +2,7 @@ const fs = require("fs");
 const fetch = require("node-fetch");
 const args = process.argv;
 
-const keywords = ["if", "else", "then", "var", "repeat", "get", "fun", "write", "return", "while", "do", "uwu"];
+const keywords = ["if", "else", "then", "var", "repeat", "get", "fun", "write", "return", "while", "do", "uwu", "import", "for", "async", "await", "promise", "class"];
 const uwu = { 
     random: () => Math.floor(Math.random() * 100)
 };
