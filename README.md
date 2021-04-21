@@ -35,11 +35,3 @@ I may write the documentation when im done with making the language, but for now
 ```
 write "hello"
 ```
-
-variables:
-
-```
-var str name = "allah"
-
-var isGay = true
-```
