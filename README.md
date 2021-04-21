@@ -25,3 +25,19 @@ I don't recommed that you try this programming language until I am done with it,
 - functions
 - modules (no exporting required)
 - async/await (coming soon)
+
+# Documentation
+
+I may write the documentation when im done with making the language, but for now here's how to print out text:
+
+```
+write "hello"
+```
+
+variables:
+
+```
+var str name = "allah"
+
+var isGay = true
+```
