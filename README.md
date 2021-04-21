@@ -24,3 +24,4 @@ I don't recommed that you try this programming language until I am done with it,
 - built in get function (fetches JSON from a REST API)
 - functions
 - modules (no exporting required)
+- async/await (coming soon)
