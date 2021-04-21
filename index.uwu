@@ -1,75 +1,25 @@
--- sex name {
---     write "name"
---     write "surname"
---     write "AAAAAAAAAAAAAAAAAAA"
--- }
+var sex = 4
 
--- fun lara() {
---     write "AAAAAAAAa"
---     -- write "AAAAAAAAa"
---     -- repeat 2 write "hhhh"
---     -- write "AAAAAAAAa"
---     -- get "https://jsonplaceholder.typicode.com/photos/2"
---     -- --return "SEX"
---     -- var aaa = "sex22"
---     -- write aaa
---     -- write "yeeee"
--- }
+if uwu.sex>20 then write "Sex"
 
--- uwu.lara()
+if (!uwu.sex == 4) {
+    write "se"
+    write "bruhrhurh"
+} else {
+    write "AAa"
+    write "allah"
+}
 
--- fun fizzbuzz(num) {
---     if num%5===0&&num%3===0 then write "fizzbuzz"
---     if num%3===0 then write "fizz"
---     if num%5===0 then write "buzz"
--- }
+import "bruh.uwu"
 
--- uwu.fizzbuzz(75)
+if (uwu.sex == 4) {
+    write "se"
+    write "bruhrhurh"
+} else {
+    write "AAa"
+    write "allah"
+}
 
--- fun sex(age) {
---     if true then write "come"
---     if true then var s = "ll"
---     write age>18
---     write s
--- }
-
--- uwu.sex()
--- fun all() => write "Sex"
-
--- uwu.all()
--- uwu.sex(2)
-
--- fun idk() {
---     write "sex"
---     write "yeah"
--- }
-
--- uwu.idk()
-
--- import "bruh.uwu"
-
--- var str firstname = "lara"
-
--- var num age = 453.4
-
--- var bool isGay = true
-
--- var sex = true
-
--- write uwu.sex
-
--- write uwu.firstname
-
--- if uwu.isGay then write "laraisgay"
-
--- for (var i = 0; i < 5; i++) {
---     write i
--- }
-
--- for (var i = 0; i < 5; i++) {
---     write i
--- }
-
-sex aaa {
-    write "as"
+for (var h = 5; h < 10; h++) {
+    write h
 }
