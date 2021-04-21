@@ -1,4 +1,4 @@
-# uwu programming language
+# What is this?
 
 A small programming language I'm making.
 
