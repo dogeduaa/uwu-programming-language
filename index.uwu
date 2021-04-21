@@ -46,7 +46,7 @@
 
 -- uwu.idk()
 
-import "bruh.uwu"
+-- import "bruh.uwu"
 
 -- var str firstname = "lara"
 
@@ -62,10 +62,14 @@ import "bruh.uwu"
 
 -- if uwu.isGay then write "laraisgay"
 
-for (var i = 0; i < 5; i++) {
-    write i
-}
+-- for (var i = 0; i < 5; i++) {
+--     write i
+-- }
 
-for (var i = 0; i < 5; i++) {
-    write i
+-- for (var i = 0; i < 5; i++) {
+--     write i
+-- }
+
+sex aaa {
+    write "as"
 }

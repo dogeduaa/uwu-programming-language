@@ -622,6 +622,22 @@ try {
                     const link = line.split(" ")[1].split("").filter(char => char !== "\"").join("");
                     fetch(link).then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err));
                     break;
+                case "sex":
+                    for (let c = 1; true; c++) {
+                        if (file.split("\n")[file.split("\n").indexOf(line)+c].includes("}")) {
+                            break;
+                        } else {
+                            if (file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[0] === "write") {
+                                const message = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1];
+                                if (message.startsWith("\"")) {
+                                    console.log(message.split("").filter(char => char !== "\"").join(""));
+                                } else {
+                                    console.log(eval(message));
+                                }
+                            }
+                        }
+                    }   
+                    break;
                 case "for":
                     let conditions = [];
 
