@@ -20,14 +20,14 @@ I don't recommed that you try this programming language until I am done with it,
 # Features
 
 - variables
-- conditional statements (still working on these)
-- functions
-- loops 
+- conditional statements (work in progress)
+- functions (work in progress)
+- loops (work in progress)
 - classes (coming soon)
 - modules
 - promises (coming soon)
 - async/await (coming soon)
-- netword requests (work in progress)
+- network requests (work in progress)
 
 # Documentation
 
