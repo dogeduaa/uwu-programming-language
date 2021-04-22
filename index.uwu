@@ -11,7 +11,7 @@
 -- }
 
 fun idfk() {
-    for (var h = 1; h < 10; h++) {
+    for (var h = 1; h < 100; h++) {
         write h
     }
 }
