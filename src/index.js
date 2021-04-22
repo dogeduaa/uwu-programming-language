@@ -838,6 +838,38 @@ try {
                                         } 
                                     })
                                     code.push(`let ${nam} = ${value}`)
+                                } else if (cond === "for") {
+                                    let cod = [];
+                                    let kod = [];
+
+                                    for (let c = 1; true; c++) {
+                                        if (file.split("\n")[file.split("\n").indexOf(line)+c].includes("}")) {
+                                            break;
+                                        } else {
+                                            cod.push(file.split("\n")[file.split("\n").indexOf(line)+c].trim().replace("var", "let"))
+                                        }
+                                    }
+
+                                    let condition = cod[0];
+                                    let conditions = []
+                                    
+                                    condition.substring(condition.indexOf("("), condition.indexOf(")")+1).split(";").forEach(char => {
+                                        conditions.push(char.split("").filter(letter => letter !== "(" && letter !== ")").join("").replace("var", "let").trim())
+                                    })
+
+                                    cod.forEach(b => {
+                                        if (b.split(" ")[0] === "write") {
+                                            kod.push(`console.log(${b.split(" ")[1]})`)
+                                        } 
+                                    })
+
+                                    code.push(`
+                                    ${conditions[0]}
+                                    while(${conditions[1]}) {
+                                        ${kod.join("\n")}
+                                        ${conditions[2]}
+                                    }
+                                    `)
                                 } else if (cond === "if") {
                                     const statement = lne;
                                     if (eval(statement[1])) {
