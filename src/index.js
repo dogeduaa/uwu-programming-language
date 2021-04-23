@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 const args = process.argv;
 const keywords = ["if", "else", "then", "var", "repeat", "get", "fun", "write", "return", "while", "do", "uwu", "import", "for", "async", "await", "promise", "class"];
 const uwu = { random: () => Math.floor(Math.random() * 100) };
-const dataTypes = ['str', 'num', 'bool'];
+const dataTypes = ['str', 'num', 'bool', 'null'];
 
 import writeCommand from "./features/write-command";
 import ifStatement from "./features/conditionals";

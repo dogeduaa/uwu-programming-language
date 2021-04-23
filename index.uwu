@@ -2,15 +2,15 @@
 
 
 
-fun idfk() {
-    for (var h = 1; h < 100; h++) {
-        write h
-    }
-}
+-- fun idfk() {
+--     for (var h = 1; h < 100; h++) {
+--         write h
+--     }
+-- }
 
-uwu.idfk()
+-- uwu.idfk()
 
-import "bruh.uwu"
+-- import "bruh.uwu"
 
 -- write "Se"
 
@@ -24,10 +24,22 @@ import "bruh.uwu"
 --     write "allah"
 -- }
 
-var str bruh = "sexxxx"
+-- var str bruh = "sexxxx"
 
-write uwu.bruh
+-- write uwu.bruh
 
-repeat 20 write uwu.bruh
+-- repeat 20 write uwu.bruh
 
-get "https://mocki.io/v1/2d190264-dff2-464f-beb5-a78903f6713a"
+-- get "https://mocki.io/v1/2d190264-dff2-464f-beb5-a78903f6713a"
+
+var num age = 20
+
+if uwu.age==20 then write "2-"
+
+if (uwu.age < 59) {
+    write "Sex"
+}
+
+fun sex(a,b) {
+    write "sex"
+}
