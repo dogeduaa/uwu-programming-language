@@ -1,37 +1,31 @@
--- repeat 20 write "Khomeini"
--- write "aaaaa"
--- fun sex() => write "YES"
--- uwu.sex()
--- var i = 0
--- var name = "null"
--- write uwu.name
--- var number = 75
--- if uwu.number%3===0&&uwu.number%5===0 then write "fizzbuzz" elseif uwu.number%3===0 write "fizz" else write "buzz"
--- fun sss() {
---     write "sssssus"
--- }
--- uwu.sss()
+repeat 20 write "Khomeini"
+write "aaaaa"
+fun sex() => write "YES"
+uwu.sex()
+var i = 0
+var name = "null"
+write uwu.name
+var number = 75
+if uwu.number%3===0&&uwu.number%5===0 then write "fizzbuzz" elseif uwu.number%3===0 write "fizz" else write "buzz"
+fun sss() {
+    write "sssssus"
+}
+uwu.sss()
 
 var str nme = "sex"
 
-var sex = 4
+write "Se"
 
-if (uwu.nme = "sex") {
-    write "se"
-    write "bruhrhurh"
-} else {
-    write "AAa"
-    write "allah"
+if (true) {
+    write "s"
 }
 
-if (uwu.sex == 4) {
-    write "se"
-    write "bruhrhurh"
-} else {
-    write "AAa"
-    write "allah"
+var sex = 3
+
+write uwu.sex
+
+fun s() {
+    write "ss"
 }
 
-for (var h = 5; h < 10; h++) {
-    write h
-}
+uwu.s()
