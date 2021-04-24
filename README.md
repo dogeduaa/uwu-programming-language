@@ -1,6 +1,6 @@
 # What is this?
 
-A small programming language I made for fun.
+A small programming language that I made for fun.
 
 Note: it's not that usable, it was only made for fun
 
