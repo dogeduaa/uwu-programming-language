@@ -1,42 +1,33 @@
-function functions(file, line, uwu) {
+function functions(file, line, uwu, fetch, keywords, dataTypes) {
     const code = [];
     const functionName = line.split(" ")[1].substring(0, line.split(" ")[1].indexOf("("));
     const params = line.substring(line.indexOf("("), line.indexOf(")")+1);
-    let url = "";
-    let lyne = "";
     if (line.split(" ")[2].substring(0, line.split(" ")[2].length-1) === "{") {
         for (let c = 1; true; c++) {
             if (file.split("\n")[file.split("\n").indexOf(line)+c].includes("}")) {
                 eval(`uwu.${functionName} = ${params} => {${code.join("\n")}}`)
                 break;
             } else {
-                const lne = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" "); 
                 const cond = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[0];
                 const message = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1];
                 if (cond === "write") {
                     code.push(`console.log(${message})`);
                 } else if (cond === "get") {
-                    url = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1].split("").filter(char => char !== "\"").join("");
-                    code.push("fetch(url).then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err));")
+                    code.push(`fetch(${file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1]}).then(res=>res.json()).then(res=>console.log(res)).catch(err=>console.log(err));`);
                 } else if (cond === "return") {
                     code.push(`return ${message}`);
                 } else if (cond === "repeat") {
-                    lyne = lne;
                     code.push(`
-                        for (let i = 0; i < parseInt(lyne[1]); i++) {
-                            if (lyne[2] === "write") {
-                                if (lyne[3].startsWith('"')) {
-                                    console.log(lyne[3].split("").filter(char => char !== '"').join(""));
-                                } else {
-                                    console.log(eval(lyne[3]));
-                                }
+                        for (let i = 0; i < parseInt(${file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1]}); i++) {
+                            if ("${file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[2]}" === "write") {
+                                console.log(${file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[3]});
                             }
                         }`);
                 } else if (cond === "--") {
                     
                 } else if (cond === "var") {
-                    const nam = lne[1];
-                    const value = lne[3];
+                    const nam = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1];
+                    const value = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[3];
                     keywords.forEach(keyword => {
                         if (nam === keyword) {
                             throw "Syntax Error: you cannot name a variable using a keyword.";
@@ -55,10 +46,10 @@ function functions(file, line, uwu) {
                         }
                     }
 
-                    let condition = cod[0];
+                    let lyne = file.split("\n")[file.split("\n").indexOf(line)+c].trim();
                     let conditions = []
                     
-                    condition.substring(condition.indexOf("("), condition.indexOf(")")+1).split(";").forEach(char => {
+                    lyne.substring(lyne.indexOf("("), lyne.indexOf(")")+1).split(";").forEach(char => {
                         conditions.push(char.split("").filter(letter => letter !== "(" && letter !== ")").join("").replace("var", "let").trim())
                     })
 
@@ -76,19 +67,71 @@ function functions(file, line, uwu) {
                     }
                     `)
                 } else if (cond === "if") {
-                    const statement = lne;
+                    const statement = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ");
+
+                    if (file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1].startsWith("(")) {
+                        let conditios = [];
+
+                        console.log(conditios)
+                        let g = 0;
+                        for (let c = 1; true; c++) {
+                            if (file.split("\n")[file.split("\n").indexOf(line)+c].includes("}")) {
+                                g = c;
+                                break;
+                            } 
+                        }
+                
+                        if (conditios.join("")) {
+                            if (eval(conditios.join(""))) {
+                                for (let c = 1; true; c++) {
+                                    if (file.split("\n")[file.split("\n").indexOf(line)+c].includes("}")) {
+                                        break;
+                                    } else {
+                                        if (file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[0] === "write") {
+                                            const message = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[1];
+                                            if (message.startsWith("\"")) {
+                                                console.log(message.split("").filter(char => char !== "\"").join(""));
+                                            } else {
+                                                console.log(eval(message));
+                                            }
+                                        }
+                                    }
+                                } 
+                            } else {
+                                let curLine = file.split("\n")[file.split("\n").indexOf(line)+g];
+                                if (curLine.replace("}", "").trim().split(" ")[0] === "else") {
+                                    for (let a = 1; true; a++) {
+                                        if (file.split("\n")[file.split("\n").indexOf(curLine)+a].includes("}")) {
+                                            break;
+                                        } else {
+                                            // console.log(file.split("\n")[file.split("\n").indexOf(curLine)+a].trim())
+                                            if (file.split("\n")[file.split("\n").indexOf(curLine)+a].trim().split(" ")[0] === "write") {
+                                                const message = file.split("\n")[file.split("\n").indexOf(curLine)+a].trim().split(" ")[1];
+                                                if (message.startsWith("\"")) {
+                                                    console.log(message.split("").filter(char => char !== "\"").join(""));
+                                                } else {
+                                                    console.log(eval(message));
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            return;
+                        }
+                    }
+
                     if (eval(statement[1])) {
                         if (statement[2] === "then") {
                             if (statement[3] === "write") {
-                                lyne = lne
-                                if (lne[4].startsWith("\"")) {
-                                    code.push(`\nconsole.log(lyne[4].split("").filter(char => char !== '"').join(""))`);
+                                if (file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[4].startsWith("\"")) {
+                                    code.push(`\nconsole.log(${file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[4]}.split("").filter(char => char !== '"').join(""))`);
                                 } else {
-                                    code.push(`console.log(lyne[4])`);
+                                    code.push(`console.log(${file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[4]})`);
                                 }
                             } else if (statement[3] === "var") {
-                                const nam = lne[4];
-                                const value = lne[6];
+                                const nam = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[4];
+                                const value = file.split("\n")[file.split("\n").indexOf(line)+c].trim().split(" ")[6];
                                 keywords.forEach(keyword => {
                                     if (nam === keyword) {
                                         throw "Syntax Error: you cannot name a variable using a keyword.";

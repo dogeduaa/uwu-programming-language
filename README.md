@@ -1,12 +1,8 @@
 # What is this?
 
-A small programming language I'm making.
+A small programming language I made for fun.
 
-I started working on it in April 17, 2021.
-
-Note: it's not done yet, I'm still fixing the bugs and adding more features.
-
-I don't recommed that you try this programming language until I am done with it, it may not behave as intended when working with some incomplete features such as multiline functions or loops etc.
+Note: it's not that usable, it was only made for fun
 
 # Prerequisites
 
@@ -20,14 +16,10 @@ I don't recommed that you try this programming language until I am done with it,
 # Features
 
 - variables
-- conditional statements (work in progress)
-- functions (work in progress)
-- loops (work in progress)
-- classes (coming soon)
+- conditional 
+- functions 
+- loops 
 - modules
-- promises (coming soon)
-- async/await (coming soon)
-- network requests (work in progress)
 
 # Documentation
 
