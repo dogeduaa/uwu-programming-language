@@ -55,7 +55,7 @@ try {
                     test(file, line, uwu);   
                     break;
                 case "for":
-                    forLoop(line, uwu);
+                    forLoop(line, uwu, file);
                     break;
                 case "fun":
                     functions(file, line, uwu, fetch, keywords, dataTypes);

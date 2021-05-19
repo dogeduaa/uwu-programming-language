@@ -11,7 +11,7 @@ Note: it's not that usable, it was only made for fun
 # How to run
 
 - Open the folder and type `npm install -g` in the terminal.
-- Once you're done working on the .uwu file, type `uwu filename` in the terminal to run the file.
+- Once you're done working on the .uwu file, type `uwu filename` in the terminal to run the file. (If you have any issues with the CLI just run `npm link` and it should work)
 
 # Features
 

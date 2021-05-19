@@ -11,7 +11,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "keywords":[
+  "keywords": [
     "uwu"
   ],
   "description": "A small programming language I'm making.\r Note: it's not done yet, I'm still fixing the bugs and adding more features.",

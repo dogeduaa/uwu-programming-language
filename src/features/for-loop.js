@@ -1,4 +1,4 @@
-function forLoop(line, uwu) {
+function forLoop(line, uwu, file) {
     let conditions = [];
 
     line.substring(line.indexOf("("), line.indexOf(")")+1).split(";").forEach(char => {
